@@ -32,7 +32,7 @@ so no future-leaks-into-past) and **SMOTE** oversampling applied only to the tra
 > business-defined operating point are the metrics that matter for fraud review
 > queues, where analyst capacity is the real constraint.
 
-![Evaluation plots](models/evaluation_plots.png)
+![Evaluation plots](evaluation_plots.png)
 
 ## Architecture
 
