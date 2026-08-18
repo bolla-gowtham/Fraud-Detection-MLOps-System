@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint (basic syntax check)
+        run: python -m py_compile src/*.py api/*.py
+
+      - name: Generate synthetic data
+        run: python data/generate_data.py --n_rows 50000 --out data/transactions.csv
+
+      - name: Train model
+        run: cd src && python train.py --data ../data/transactions.csv --out_dir ../models
+
+      - name: Run tests
+        run: python -m pytest tests/ -v
+
+      - name: Build Docker image
+        run: docker build -t fraud-detection-api:ci .

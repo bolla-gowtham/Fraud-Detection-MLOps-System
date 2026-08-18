@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.env
+.DS_Store
+
+# generated data & model artifacts (regenerate via scripts, don't version)
+data/*.csv
+models/*.joblib
+models/*.json
+models/*.png
+
+.ipynb_checkpoints/
