@@ -117,12 +117,7 @@ fraud-detection-mlops/
 This project uses a **synthetic dataset** generated to match the statistical
 properties of real card-fraud data (severe class imbalance, night-time skew,
 category risk skew, distance-from-home signal) rather than a proprietary or
-license-restricted dataset like the popular Kaggle "Credit Card Fraud Detection"
-dataset. To swap in a real dataset, replace `data/transactions.csv` with your own
-data using the same column schema (`transaction_id, customer_id, amount,
-hour_of_day, day_of_week, seconds_elapsed, merchant_category,
-distance_from_home_km, is_online, is_fraud`), or adapt `src/features.py` to your
-schema.
+license-restricted dataset.
 
 ## License
 
